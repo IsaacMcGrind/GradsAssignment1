@@ -1,26 +1,26 @@
 ﻿string? userInput;
 string? UserChoice;
 
-static void DisplayResults(string results)
+void DisplayResults(string results)
 {
     Console.WriteLine($"\noutput: {results}");
 }
 
-static string? DisplayMessageAndCaptureInput()
+string? DisplayMessageAndCaptureInput()
 {
     Console.WriteLine("\nType Input:");
     return Console.ReadLine();
 }
 
 
-static string ReverseString(string? input)
+string ReverseString(string? input)
 {
     char[] arrayOfUnicodeChars = input!.ToArray();
     Array.Reverse(arrayOfUnicodeChars);
     return new string((char[])arrayOfUnicodeChars);
 }
 
-static string IsAPalindrome(string? input) 
+string IsAPalindrome(string? input) 
 { 
     string? reversedString = ReverseString(input);
 
@@ -30,14 +30,14 @@ static string IsAPalindrome(string? input)
 
 }
 
-static string ReverseWordsOrder(string? input) 
+string ReverseWordsOrder(string? input) 
 {
     string[] stringArray = input!.Split(" ");
     Array.Reverse(stringArray);
     return string.Join(" ", stringArray);
 }
 
-static string ReverseEachWord(string? input) 
+string ReverseEachWord(string? input) 
 {
     List<string> reversedStrings = new();
     string[] stringArray = input!.Split(" ");
@@ -50,7 +50,7 @@ static string ReverseEachWord(string? input)
     return string.Join(" ", reversedStrings);
 }
 
-static string CountCharacterOccurence(string? input) 
+string CountCharacterOccurence(string? input) 
 {
     string results = "\n";
     List<char> charToCompare = new();
