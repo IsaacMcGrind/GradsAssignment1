@@ -1,4 +1,5 @@
 ﻿string? userInput;
+string? UserChoice;
 
 static void DisplayResults(string results)
 {
@@ -67,44 +68,53 @@ static string CountCharacterOccurence(string? input)
     return results;
 }
 
-Console.WriteLine(
-"Hello, what would you like to do?\n" +
-"1. Reverse a string?\n" +
-"2. Check if a string is a Palindrome?\n" +
-"3. Reverse the order of words?\n" +
-"4. Reverse each word?\n" +
-"5. Count the occurence of characters?\n\n" +
-"Please choose between 1-5");
+do {
 
-switch (Console.ReadLine())
-{
-    case "1":
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(ReverseString(userInput));
-        break;
+    Console.WriteLine(
+    "\nHello, what would you like to do?\n" +
+    "1. Reverse a string?\n" +
+    "2. Check if a string is a Palindrome?\n" +
+    "3. Reverse the order of words?\n" +
+    "4. Reverse each word?\n" +
+    "5. Count the occurence of characters?\n\n" +
+    "Please choose between 1-5");
 
-    case "2":
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(IsAPalindrome(userInput));
-        break;
+    UserChoice = Console.ReadLine();
 
-    case "3":
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(ReverseWordsOrder(userInput));
-        break;
+    switch (UserChoice)
+    {
+        case "1":
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(ReverseString(userInput));
+            break;
 
-    case "4":
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(ReverseEachWord(userInput));
-        break;
+        case "2":
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(IsAPalindrome(userInput));
+            break;
 
-    case "5":
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(CountCharacterOccurence(userInput));
-        break;
+        case "3":
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(ReverseWordsOrder(userInput));
+            break;
 
-    default:
-        userInput = DisplayMessageAndCaptureInput();
-        DisplayResults(IsAPalindrome(userInput));
-        break;
-}
+        case "4":
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(ReverseEachWord(userInput));
+            break;
+
+        case "5":
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(CountCharacterOccurence(userInput));
+            break;
+
+        default:
+            userInput = DisplayMessageAndCaptureInput();
+            DisplayResults(IsAPalindrome(userInput));
+            break;
+    }
+
+    Console.WriteLine("\nWould you like to choose again? \n1. Yes \n0. No");
+    UserChoice = Console.ReadLine();
+
+} while (UserChoice != "0" && UserChoice !="No");
